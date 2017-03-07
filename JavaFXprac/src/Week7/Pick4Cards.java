@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,7 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -29,7 +27,7 @@ public class Pick4Cards extends Application {
     @Override
     public void start(Stage primaryStage) {
         List<Integer> list = new ArrayList();
-        for (int i = 0; i <= 52; i++) {
+        for (int i = 1; i <= 52; i++) {
             list.add(i);
         }
         java.util.Collections.shuffle(list);//remember this*********************
@@ -41,10 +39,10 @@ public class Pick4Cards extends Application {
             //getChildren() adds nodes then add a new image view to create file.
         }
         Button btRefresh = new Button("Refresh");
-        btRefresh.setOnAction(e -> {
+        btRefresh.setOnAction((ActionEvent e) -> {
             java.util.Collections.shuffle(list);
             hBox.getChildren().clear();
-            for (int i = 0; i < 5; i++) {
+            for (int i = 1; i < 5; i++) {
                 hBox.getChildren().add(new ImageView("image/card/" + list.get(i) + ".png"));
             }
         }); 
