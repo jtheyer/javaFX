@@ -5,6 +5,7 @@
  */
 package javafxprac;
 
+import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -24,7 +25,7 @@ import javafx.stage.Stage;
  *
  * @author 55heyerjt01
  */
-public class ColorMixer {
+public class ColorMixer extends Application {
 
     private TextField tfRed, tfGreen, tfBlue;
     private Rectangle rect;
