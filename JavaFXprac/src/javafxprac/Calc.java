@@ -7,31 +7,45 @@ package javafxprac;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Calc extends Application {
-    int one = 1; int two = 2; int three = 3;int four = 4;int five = 5; 
+    
     @Override
     public void start(Stage primaryStage) {
         Label calcTitle = new Label("Simple Calculator");
-        calcTitle.setStyle("-fx-font-size: 16px; -fx-text-fill: #0000ff");
+        calcTitle.setStyle("-fx-padding: 10; -fx-font-size: 24; "
+                + "-fx-text-fill: #00ff00;");
         
+        HBox hBoxTitle = new HBox();
+        hBoxTitle.setAlignment(Pos.CENTER);
+        hBoxTitle.getChildren().add(calcTitle);
         
-        GridPane gridPane = new GridPane(); 
-        gridPane.setStyle("-fx-padding:10px;");
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setStyle("-fx-hgap: 5; -fx-vgap: 5; -fx-padding: 10;");  
         
+        Button btOne = new Button();
+        btOne.setText("1");
+        btOne.setStyle("-fx-font-size: 16pt;");
+        gridPane.add(btOne, 0, 0);
         
-       BorderPane borderPane = new BorderPane();
-       borderPane.setStyle("-fx-padding: 20px;");
-       borderPane.setTop(calcTitle);
+//        Button btTwo = new Button();
+//        btOne.setText("2");
         
-        Scene scene = new Scene(borderPane, 300, 450);
+        BorderPane borderPane = new BorderPane();
+        borderPane.setTop(calcTitle);
+        borderPane.setCenter(gridPane);
+        
+        Scene scene = new Scene(borderPane);
         primaryStage.setTitle("Simple Calculator");
         primaryStage.setScene(scene);
         primaryStage.show();
